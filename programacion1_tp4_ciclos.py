@@ -69,8 +69,9 @@ print(f"Intentos: {intentos}")
 # 6) Desarrolla un programa que imprima en pantalla todos los números pares comprendidos
 # entre 0 y 100, en orden decreciente.
 
-for i in range(100, 0, -2):
-    print(i)
+for i in range(100, -1, -1):
+    if i % 2 == 0:
+        print(i)
 
 # 7) Crea un programa que calcule la suma de todos los números comprendidos entre 0 y un
 # número entero positivo indicado por el usuario.
@@ -116,5 +117,28 @@ print(f"Negativos: {negativos}")
 # 9) Elabora un programa que permita al usuario ingresar 100 números enteros y luego calcule la
 # media de esos valores. (Nota: puedes probar el programa con una cantidad menor, pero debe
 # poder procesar 100 números cambiando solo un valor).
+
+suma = 0
+cantidad = 100
+media = 0
+
+for i in range(cantidad):
+    num = int(input(f"Ingrese un número entero ({i + 1}/{cantidad}): "))
+    suma += num
+
+media = suma / cantidad
+
+print(f"Media: {media}")
+
 # 10) Escribe un programa que invierta el orden de los dígitos de un número ingresado por el
 # usuario. Ejemplo: si el usuario ingresa 547, el programa debe mostrar 745.
+
+numero = int(input("Ingrese un número: "))
+numero_invertido = 0
+
+while numero > 0:
+    ultimo_digito = numero % 10 
+    numero_invertido = numero_invertido * 10 + ultimo_digito
+    numero = numero // 10 
+
+print(f"Número invertido: {numero_invertido}")

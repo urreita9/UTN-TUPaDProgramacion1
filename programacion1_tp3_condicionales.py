@@ -171,6 +171,22 @@ else:
 # débiles).
 # ● Mayor o igual que 6 y menor que 7: "Muy Fuerte" (puede causar daños significativos).
 # ● Mayor o igual que 7: "Extremo" (puede causar graves daños a gran escala).
+
+magnitud = float(input("Ingrese la magnitud del terremoto: "))
+
+if magnitud < 3:
+    print("Muy leve")
+elif magnitud >= 3 and magnitud < 4:
+    print("Leve")
+elif magnitud >= 4 and magnitud < 5:
+    print("Moderado")
+elif magnitud >= 5 and magnitud < 6:
+    print("Fuerte")
+elif magnitud >= 6 and magnitud < 7:
+    print("Muy Fuerte")
+else:
+    print("Extremo")
+
 # 10) Utilizando la información aportada en la siguiente tabla sobre las estaciones del año
 # Periodo del año
 # Estación en el
@@ -192,3 +208,32 @@ else:
 # Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes
 # del año es y qué día es. El programa deberá utilizar esa información para imprimir por pantalla
 # si el usuario se encuentra en otoño, invierno, primavera o verano.
+
+hemisferio = input("¿En qué hemisferio se encuentra? (N/S): ").upper()
+mes = int(input("¿Qué mes del año es? (1-12): "))
+dia = int(input("¿Qué día es? (1-31): "))
+
+# Determinar la estación según el hemisferio
+if hemisferio == "N":
+    # Hemisferio Norte
+    if (mes == 12 and dia >= 21) or mes == 1 or mes == 2 or (mes == 3 and dia <= 20):
+        estacion = "Invierno"
+    elif (mes == 3 and dia >= 21) or mes == 4 or mes == 5 or (mes == 6 and dia <= 20):
+        estacion = "Primavera"
+    elif (mes == 6 and dia >= 21) or mes == 7 or mes == 8 or (mes == 9 and dia <= 20):
+        estacion = "Verano"
+    else:  # (mes == 9 and dia >= 21) or mes == 10 or mes == 11 or (mes == 12 and dia <= 20)
+        estacion = "Otoño"
+        
+elif hemisferio == "S":
+    # Hemisferio Sur (estaciones opuestas)
+    if (mes == 12 and dia >= 21) or mes == 1 or mes == 2 or (mes == 3 and dia <= 20):
+        estacion = "Verano"
+    elif (mes == 3 and dia >= 21) or mes == 4 or mes == 5 or (mes == 6 and dia <= 20):
+        estacion = "Otoño"
+    elif (mes == 6 and dia >= 21) or mes == 7 or mes == 8 or (mes == 9 and dia <= 20):
+        estacion = "Invierno"
+    else:  # (mes == 9 and dia >= 21) or mes == 10 or mes == 11 or (mes == 12 and dia <= 20)
+        estacion = "Primavera"
+
+print(f"Te encuentras en {estacion}")
